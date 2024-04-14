@@ -1,21 +1,8 @@
-import { Suspense, lazy, useEffect, useState, useRef } from 'react';
-import {
-  useParams,
-  Routes,
-  Route,
-  Link,
-  NavLink,
-  Outlet,
-  useLocation,
-} from 'react-router-dom';
+import { useEffect, useState, useRef } from 'react';
+import { useParams, NavLink, Outlet, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { HiArrowNarrowLeft } from 'react-icons/hi';
 import css from '../pages/PagesCss/MovieDetailsPage.module.css';
-
-const MovieCast = lazy(() => import('../components/MovieCast/MovieCast'));
-const MovieReviews = lazy(() =>
-  import('../components/MovieReviews/MovieReviews')
-);
 
 const defaultImg =
   'https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg';
@@ -25,12 +12,10 @@ const API_KEY = 'e5344fe190fc187358ffc7a483e920aa';
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movieDetails, setMovieDetails] = useState(null);
-  // const locationState = useRef(null);
   const location = useLocation();
   const goBack = useRef(location?.state?.from ?? '/');
 
   useEffect(() => {
-    // console.log("movieId:", movieId);
     const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-U`;
 
     const fetchMovieDetails = async () => {
@@ -114,12 +99,6 @@ const MovieDetailsPage = () => {
           </li>
         </ul>
       </div>
-      <Suspense>
-        <Routes>
-          <Route path="cast" element={<MovieCast movieId={movieId} />} />
-          <Route path="reviews" element={<MovieReviews movieId={movieId} />} />
-        </Routes>
-      </Suspense>
       <Outlet />
     </div>
   );
