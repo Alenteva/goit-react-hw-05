@@ -7,10 +7,6 @@ import NotFoundPage from './pages/NotFoundPage';
 import Navigation from './components/Navigation/Navigation';
 
 import { Routes, Route } from 'react-router-dom';
-// import HomePage from 'path/to/pages/HomePage';
-// import MovieDetailsPage from 'path/to/pages/MovieDetailsPage';
-// import MoviesPage from 'path/to/pages/MoviesPage';
-// import NotFoundPage from 'path/to/pages/NotFoundPage';
 import css from './App.module.css';
 
 function App() {

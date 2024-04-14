@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-// import imgNotFound from '../assets/image-not-found.jpg';
-
 import css from './MovieCast.module.css';
 import { useParams } from 'react-router-dom';
 
@@ -40,7 +38,7 @@ const MovieCast = () => {
 
   return (
     <div>
-      <ul>
+      <ul className={css['CastBox']}>
         {cast.map(actor => (
           <li key={actor.id}>
             <img

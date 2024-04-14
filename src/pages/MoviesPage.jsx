@@ -4,7 +4,8 @@ import { useSearchParams } from 'react-router-dom';
 import SearchBar from '../components/SearchBar/SearchBar';
 import MovieList from '../components/MovieList/MovieList';
 import axios from 'axios';
-import css from '../components/SearchBar/SearchBar.module.css';
+import { HiArrowLeft, HiArrowRight } from 'react-icons/hi';
+import css from './PagesCss/MoviesPage.module.css';
 
 const MoviesPage = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -93,15 +94,22 @@ const MoviesPage = () => {
         />
         {searchResults.length !== 0 && <MovieList movies={searchResults} />}
         {searchResults.length !== 0 && (
-          <div>
-            <button onClick={handlePreviousPage} disabled={currentPage === 1}>
+          <div className={css['BtnBox']}>
+            <button
+              className={css['Btn']}
+              onClick={handlePreviousPage}
+              disabled={currentPage === 1}
+            >
+              <HiArrowLeft />
               Previous Page
             </button>
             <button
+              className={css['Btn']}
               onClick={handleNextPage}
               disabled={currentPage === totalPages}
             >
               Next Page
+              <HiArrowRight />
             </button>
           </div>
         )}

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import MovieList from '../components/MovieList/MovieList';
+import css from '../pages/PagesCss/HomePages.module.css';
 
 // const TOKEN =
 //   eyJhbGciOiJIUzI1NiJ9
@@ -29,7 +30,7 @@ const HomePage = () => {
     fetchTrendingMovies();
   }, []);
   return (
-    <div>
+    <div className={css['HomePageBox']}>
       <h1>Trending Movies</h1>
       <MovieList movies={trendingMovies} />
     </div>

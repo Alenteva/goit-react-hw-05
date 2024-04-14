@@ -1,4 +1,5 @@
 import { Field, Form, Formik } from 'formik';
+import { HiOutlineSearch } from 'react-icons/hi';
 import css from './SearchBar.module.css';
 
 const SearchBar = ({ onSubmit }) => {
@@ -9,24 +10,25 @@ const SearchBar = ({ onSubmit }) => {
   };
 
   return (
-    <header>
+    <div className={css['SearchBarBox']}>
       <Formik
         initialValues={{ query: '' }}
         onSubmit={handleSubmit} // використання функції handleSubmit
       >
-        <Form className={css.formSearch}>
+        <Form className={css['FormContainer']}>
+          <HiOutlineSearch />
           <Field
-            className={css.input}
-            placeholder="Search movies"
+            className={css['SearchInput']}
+            placeholder="Search movie"
             type="text"
             name="query"
           />
-          <button className={css.btn} type="submit">
+          <button className={css['SearchBtn']} type="submit">
             Search
           </button>
         </Form>
       </Formik>
-    </header>
+    </div>
   );
 };
 

@@ -1,0 +1,13 @@
+.BtnBox {
+  display: flex;
+  gap: 40px;
+  margin-left: 20px;
+  margin-top: 40px;
+}
+.Btn {
+  background-color: rgb(177, 129, 245);
+  color: rgb(5, 5, 119);
+  display: flex;
+  align-items: center;
+  text-align: center;
+}

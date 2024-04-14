@@ -28,7 +28,7 @@ const MovieReviews = () => {
   return (
     <div>
       {reviews.length > 0 ? (
-        <ul>
+        <ul className={css['ReviewsBox']}>
           {reviews.map(review => (
             <li key={review.id}>{review.content}</li>
           ))}

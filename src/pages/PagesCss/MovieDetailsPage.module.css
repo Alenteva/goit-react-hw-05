@@ -1,0 +1,26 @@
+.MovieDetailsBox {
+  margin-left: 20px;
+}
+.BackBtn {
+  margin-top: 10px;
+  font-size: 20px;
+}
+.BackBtnLink {
+  color: rgb(5, 5, 119);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.MovieDetails {
+  display: flex;
+}
+.CastReviewsBox {
+  display: flex;
+  gap: 20px;
+}
+.CastReviews {
+  color: rgb(5, 5, 119);
+}
+.CastBox {
+  display: flex;
+}

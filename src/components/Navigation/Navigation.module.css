@@ -1,7 +1,24 @@
 ul {
   list-style-type: none;
 }
+.NavBox {
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid blue;
+  box-shadow: -1px 3px 6px 3px rgba(76, 43, 118, 0.65);
+  display: flex;
+  align-items: center;
+  height: 60px;
+  width: 1280px;
+  box-sizing: border-box;
+  background-color: rgb(240, 244, 248);
+}
 .NavList {
   display: flex;
-  gap: 20px;
+  gap: 40px;
+}
+.NavListItem {
+  color: rgb(5, 5, 119);
+  font-size: 24px;
+  font-weight: 500;
 }

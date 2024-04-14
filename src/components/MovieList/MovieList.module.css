@@ -1,0 +1,15 @@
+.MoviesItem {
+  margin-bottom: 20px;
+}
+
+.Movies {
+  color: aliceblue;
+  margin: 0;
+}
+.MoviesTitle {
+  margin: 0;
+}
+.MoviesReting {
+  color: rgb(73, 70, 70);
+  margin: 0;
+}

@@ -4,10 +4,13 @@ import {
   Routes,
   Route,
   Link,
+  NavLink,
   Outlet,
   useLocation,
 } from 'react-router-dom';
 import axios from 'axios';
+import { HiArrowNarrowLeft } from 'react-icons/hi';
+import css from '../pages/PagesCss/MovieDetailsPage.module.css';
 
 const MovieCast = lazy(() => import('../components/MovieCast/MovieCast'));
 const MovieReviews = lazy(() =>
@@ -46,15 +49,22 @@ const MovieDetailsPage = () => {
     return <div>Loading...</div>;
   }
 
-  const { title, overview, poster_path, release_date } = movieDetails;
-
+  const { title, overview, poster_path, release_date, vote_average, genres } =
+    movieDetails;
+  const ganre = [];
+  for (const ganreMovie of genres) {
+    ganre.push(ganreMovie.name);
+  }
   return (
-    <div>
-      <div>
-        <Link to={goBack.current}>Go Back</Link>
+    <div className={css['MovieDetailsBox']}>
+      <div className={css['BackBtn']}>
+        <NavLink className={css['BackBtnLink']} to={goBack.current}>
+          <HiArrowNarrowLeft />
+          Go Back
+        </NavLink>
       </div>
       <h2>{title}</h2>
-      <div>
+      <div className={css['MovieDetails']}>
         <img
           src={
             poster_path
@@ -64,22 +74,43 @@ const MovieDetailsPage = () => {
           width={250}
           alt="poster"
         />
-        <div>
-          <p>Release Date: {release_date}</p>
-          <p>{overview}</p>
-        </div>
-      </div>
-      <div>
         <ul>
           <li>
-            <Link to="cast" state={{ movieId }}>
-              Cast
-            </Link>
+            <p>User Score: {vote_average}</p>
           </li>
           <li>
-            <Link to="reviews" state={{ movieId }}>
+            {' '}
+            <p>Release Date: {release_date}</p>
+          </li>
+          <li>
+            <h3>Overview:</h3>
+            <p>{overview}</p>
+          </li>
+          <li>
+            <h3>Genres</h3>
+            <p>{`${ganre}`}</p>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <ul className={css['CastReviewsBox']}>
+          <li>
+            <NavLink
+              className={css['CastReviews']}
+              to="cast"
+              state={{ movieId }}
+            >
+              Cast
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={css['CastReviews']}
+              to="reviews"
+              state={{ movieId }}
+            >
               Reviews
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>
